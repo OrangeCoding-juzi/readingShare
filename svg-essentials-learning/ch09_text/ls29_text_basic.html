@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text basic</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .text {
+            color: red;
+            fill: #fc1;
+        }
+
+        .text-stroke {
+            fill: #09e;
+            stroke-width: 1px;
+            stroke:#09e;
+        }
+
+        .text-blank {
+            fill: none;
+            stroke-width: 0.5;
+            stroke: #0c9;
+        }
+
+        .font-family{
+            font-family: Consolas,monospace,sans-serif;
+        }
+
+        .font-size{
+            font-size: 14px;
+            font-family: monospace,sans-serif;
+        }
+
+        .font-weight{
+            font-weight:bold;
+            font-family: monospace,sans-serif;
+        }
+
+        .font-style{
+            font-style: italic;
+        }
+
+        .text-decoration{
+            text-decoration: underline;
+        }
+
+        .word-spacing{
+            word-spacing: 1em;
+        }
+
+        .letter-spacing{
+            letter-spacing: 0.3em;
+        }
+    </style>
+</head>
+<body>
+<h1 class="title">Text Basic</h1>
+<div class="wrap">
+    <div class="box">
+        <div class="card">
+            <svg width="400" height="200" viewBox="0 0 200 100">
+                <path d="m10 0 v100 M 0 30 h120 M0 60 h120 M0 90 h120" stroke="#f66" stroke-width="0.5"
+                      stroke-dasharray="2 2"></path>
+                <text x="10" y="30" class="text">Hello</text>
+                <text x="10" y="60" class="text-stroke">World</text>
+                <text x="10" y="90" class="text-blank">foobar</text>
+            </svg>
+        </div>
+        <p class="box-desc">Text</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="400" height="200" viewBox="0 0 200 120" fill="#ddd">
+                <text x="10" y="20" class="font-family">Cookie</text>
+                <text x="80" y="20" class="font-size">Cookie</text>
+                <text x="10" y="40" class="font-weight">Cookie</text>
+                <text x="80" y="40" class="font-style">Cookie</text>
+
+                <text x="10" y="70" class="text-decoration">Hello world</text>
+                <text x="10" y="90" class="word-spacing">Hello world</text>
+                <text x="10" y="110" class="letter-spacing">letter-spacing</text>
+            </svg>
+        </div>
+        <p class="box-desc">Text</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="400" height="200" viewBox="0 0 20 10" fill="#ddd">
+                <text x="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" y="0,1,2,3,4,5,6,7,8,9,10,9,8,7,6,5" fill-opacity="0.3" font-size="1">
+                    遗憾我当年年纪不可亲手拥抱你欣赏</text>
+            </svg>
+        </div>
+        <p class="box-desc">multiple x & y</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="400" height="200" viewBox="0 0 200 100" fill="#ddd">
+                <text  x="30"  fill-opacity="0.8" font-size="7">
+                    <tspan y="45" rotate="25">不要不要假设我知道</tspan>
+                    <tspan y="65" rotate="-25">一切一切也都是为我而做</tspan>
+                </text>
+                <text x="100" text-anchor="middle" y="80" fill-opacity="0.6" fill="#f66"
+                      rotate="10,30,50,70,90,120" letter-spacing="0.5em">为何这么伟大</text>
+            </svg>
+        </div>
+        <p class="box-desc">rotate text</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skew</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/snap.svg-min.js"></script>
+</head>
+<body>
+<!-- http://oreillymedia.github.io/svg-essentials-examples/ch06/skew.html -->
+<h1 class="title">skew & transform Matrix</h1>
+<div class="wrap">
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100">
+                <symbol id="origin" style="fill: hsla(160,50%,50%,0.5)"
+                        stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <rect width="40" height="40" x="30" y="30"></rect>
+                </symbol>
+                <use xlink:href="#origin"></use>
+            </svg>
+        </div>
+        <p class="box-desc">origin</p>
+    </div>
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100">
+                <symbol id="origin" style="fill: hsla(160,50%,50%,0.5)"
+                        stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <rect width="40" height="40" x="30" y="30"></rect>
+                </symbol>
+                <use xlink:href="#origin"></use>
+                <!-- skewX -->
+                <use xlink:href="#origin" transform="translate(-50,0) skewX(45)"></use>
+                <!-- skewX -->
+                <use xlink:href="#origin" transform="translate(50,0) skewX(-45)"></use>
+                <!-- skewY -->
+                <use xlink:href="#origin" transform="translate(0,-50) skewY(45)"></use>
+                <!-- skewY -->
+                <use xlink:href="#origin" transform="translate(0,50) skewY(-45)"></use>
+            </svg>
+        </div>
+        <p class="box-desc">skewX & skewY</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="paper"></svg>
+        </div>
+        <p class="box-desc">transform Matrix</p>
+    </div>
+    <script>
+        var matrixArray = [
+            {text: 'a', x: 10, y: 15},
+            {text: 'b', x: 10, y: 50},
+            {text: 'c', x: 50, y: 15},
+            {text: 'd', x: 50, y: 50},
+            {text: 'e', x: 90, y: 15},
+            {text: 'f', x: 90, y: 50},
+            {text: '0', x: 10, y: 85},
+            {text: '0', x: 50, y: 85},
+            {text: '1', x: 90, y: 85}
+        ]
+
+        var paper = Snap("#paper");
+        var textGroup = paper.g();
+        matrixArray.forEach(function(item){
+            var text = paper.text(item.x,item.y,item.text);
+            textGroup.add(text);
+        })
+
+        textGroup.attr({
+            textAnchor:'middle',
+            fontSize:'15',
+            fontWeight:'bold',
+            fill:'#0c9'
+        })
+
+    </script>
+
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="paper">
+                <defs>
+                    <rect id="rect" x="10" y="10" width="40" height="20" fill="#09e"></rect>
+                </defs>
+                <use xlink:href="#rect" transform="matrix(1,0,0,1,0,0)"></use>
+            </svg>
+        </div>
+        <p class="box-desc">matrix(1,0,0,1,0,0)</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="paper">
+                <use xlink:href="#rect" transform="matrix(1,0,0,1,20,20)"></use>
+            </svg>
+        </div>
+        <p class="box-desc">translate:m(1,0,0,1,20,20)</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="paper">
+                <use xlink:href="#rect" transform="matrix(2,0,0,2,0,0)"></use>
+            </svg>
+        </div>
+        <p class="box-desc">scale:m(2,0,0,2,0,0)</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="paper">
+                <use xlink:href="#rect" transform="matrix(1,0,.577,1,0,0)"></use>
+            </svg>
+        </div>
+        <p class="box-desc">skewX:m(1,0,tan(a),1,0,0)</p>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="paper">
+                <use xlink:href="#rect" transform="matrix(0.866,0.5,-0.5,0.866,0,0)"></use>
+            </svg>
+        </div>
+        <p class="box-desc">rotate:m(cos(a) sin(a) -sin(a) cos(a) 0 0)</p>
+    </div>
+</div>
+</body>
+</html>
